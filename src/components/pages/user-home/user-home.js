@@ -1,20 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from "redux";
+import PageTitle from "../../page-title";
 
 
 const UserHome = ({activeUser}) => {
     return (
-        <div>
-            <div>User home</div>
-            <div>Hello {activeUser.name}, email: {activeUser.email}</div>
-        </div>
+        <>
+            <PageTitle title="Home" />
+            <div>email: {activeUser.email}</div>
+        </>
     )
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({activeUser}) => {
     return {
-        activeUser: state.activeUser 
+        activeUser: activeUser,
     }
 };  
 
-export default connect(mapStateToProps)(UserHome);
+export default compose(
+    connect(mapStateToProps)
+)(UserHome);

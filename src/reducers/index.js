@@ -1,5 +1,10 @@
 import ACTION_TYPES from '../actions/action_types';
 
+const defaultUser = {
+    name: 'anonymous',
+    email: 'empty email',
+};
+
 const initialState = {
     links: {
         home: {
@@ -13,11 +18,23 @@ const initialState = {
         signup: {
             label: 'Signup',
             href: '/signup',
-        }
+        },
+        userHome: {
+            label: 'Home',
+            href: '/user-home',
+        },
+        userAlgos: {
+            label: 'My algos',
+            href: '/user-algos',
+        },
+        createNewAlgo: {
+            label: 'Create new algorithm',
+            href: '/algo/new',
+        },
     },
     isLogin: false,
-    activeUser: null,
-}
+    activeUser: defaultUser,
+};
 
 const reducer = (state=initialState, action) => {
     switch (action.type) {
@@ -27,10 +44,18 @@ const reducer = (state=initialState, action) => {
                 isLogin: true,
                 activeUser: action.payload,
             };
+
+        case ACTION_TYPES.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isLogin: false,
+                activeUser: defaultUser,
+            };
+
         default:
             return state;
     }
-}
+};
 
 export default reducer;
 

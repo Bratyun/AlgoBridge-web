@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ionic/app-scripts": "^3.2.4",
     "bootstrap": "^4.3.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -31,17 +32,16 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "not dead"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead"
     ]
   },
   "devDependencies": {
     "jest-enzyme": "^7.1.1",
-    "react-test-renderer": "^16.10.1"
+    "react-test-renderer": "^16.10.1",
+    "ws": "3.3.2"
   }
 }
